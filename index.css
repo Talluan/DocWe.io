@@ -1,0 +1,11 @@
+body {
+    margin: 0px; padding: 0px;
+    background-color: black;
+    overflow: hidden;
+}
+
+div#main-container {
+    transform: none;
+    margin: 0px; padding: 0px;
+    display: block;
+}
