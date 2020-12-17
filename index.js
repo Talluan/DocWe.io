@@ -3,18 +3,29 @@ const CONSTANTS = {
     VIEW_CHAPTER: 2
 };
 
+window.onload = () => {
+    setChoicesEnabled(false);
+}
+
 /**
  * Change l'état de ma fenetre des choix
  * @param {boolean} state état de la fenetre des choix (true: ouverte, false: fermée)
  */
-function setChoicesEnabled(state) {
+function setChoicesEnabled(state, title="Question", left="Choix 1", right="Choix 2") {
     let choicesDiv = document.getElementById("choices-container")
     if (state) {
-        choicesDiv.style.opacity = "1";
-        choicesDiv.style.transform = "scale(1)";
+        choicesDiv.style.display = "block";
+        setTimeout(() => {
+            choicesDiv.style.opacity = "1";
+            choicesDiv.style.transform = "scale(1)";
+        }, 20);
+        document.getElementById("choices-title").innerHTML = title;
+        document.getElementById("choices-left").innerHTML = left;
+        document.getElementById("choices-right").innerHTML = right;
     } else {
         choicesDiv.style.opacity = "0";
         choicesDiv.style.transform = "scale(2)";
+        setTimeout(()=>{choicesDiv.style.display = "none";}, 210);
     }
 }
 

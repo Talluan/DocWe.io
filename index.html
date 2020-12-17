@@ -8,11 +8,23 @@
     <link rel="stylesheet" href="chapters.css">
     <link rel="stylesheet" href="select.css">
     <script src="index.js"></script>
+    <script src="select.js"></script>
 </head>
 <body>
     <div id="main-container">
-        <div id="choices-container">choices view</div>
-        <div id="select-container">select view</div>
+        <div id="choices-container" onclick="setChoicesEnabled(false)">
+            <p id="choices-title">Votre choix ?</p>
+            <div id="choices-centerer">
+                <div id="choices-inliner">
+                    <p id="choices-left">Choix n°1</p>
+                    <p id="choices-right">Choix n°2</p>
+                </div>
+            </div>
+        </div>
+        <div id="select-container" onclick="setChoicesEnabled(true)">
+            <div id="select-background"></div>
+            <div id="select-foreground"></div>
+        </div>
         <div id="chapters-container">chapter view</div>
     </div>
 </body>
