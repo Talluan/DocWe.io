@@ -1,7 +1,7 @@
 div#choices-container {
     transform: none;
     margin: 0px; padding: 0px;
-    display: block;
+    display: none;
     position: absolute;
     top: 0px; left: 0px;
     bottom: 0px; right: 0px;

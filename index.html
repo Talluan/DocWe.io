@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="select.css">
     <script src="index.js"></script>
     <script src="select.js"></script>
+    <script src="chapter.js"></script>
 </head>
 <body>
     <div id="main-container">
-        <div id="choices-container" onclick="setChoicesEnabled(false)">
+        <div id="choices-container">
             <p id="choices-title">Votre choix ?</p>
             <div id="choices-centerer">
                 <div id="choices-inliner">
@@ -21,11 +22,24 @@
                 </div>
             </div>
         </div>
-        <div id="select-container" onclick="setChoicesEnabled(true)">
+        <div id="select-container">
             <div id="select-background"></div>
-            <div id="select-foreground"></div>
+            <div id="select-foreground">
+                <div id="select-image-chapter1" onclick="changeViewTo(CONSTANTS.VIEW_CHAPTER, CONSTANTS.CHAPTER_1)"></div>
+                <div id="select-image-chapter2" onclick="changeViewTo(CONSTANTS.VIEW_CHAPTER, CONSTANTS.CHAPTER_2)"></div>
+                <div id="select-image-chapter3" onclick="changeViewTo(CONSTANTS.VIEW_CHAPTER, CONSTANTS.CHAPTER_3)"></div>
+                <div id="select-image-chapter4" onclick="changeViewTo(CONSTANTS.VIEW_CHAPTER, CONSTANTS.CHAPTER_4)"></div>
+            </div>
         </div>
-        <div id="chapters-container">chapter view</div>
+        <div id="chapters-container">
+            <div id="chapters-background"></div>
+            <div id="chapters-foreground"></div>
+            <div id="chapters-text-container">
+                <p id="chapters-text-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit, harum quis. Sit deserunt nisi minus quae nobis quam est voluptatum molestiae dolores excepturi corporis nulla, quibusdam temporibus consequatur fugiat? Natus.</p>
+                <div id="chapters-text-hider-x"></div>
+                <div id="chapters-text-hider-y"></div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

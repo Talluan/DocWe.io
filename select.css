@@ -20,7 +20,7 @@ div#select-background {
     top: 0px; left: 0px;
     bottom: 0px; right: 0px;
     transition: transfrom 200ms ease;
-    background-size: cover;
+    background-size: 100vw 100vh;
 }
 
 div#select-foreground {
@@ -32,5 +32,34 @@ div#select-foreground {
     top: 0px; left: 0px;
     bottom: 0px; right: 0px;
     transition: transfrom 200ms ease;
-    background-size: cover;
+    background-size: 100vw 100vh;
+}
+
+div#select-image-chapter1 {
+    position: relative;
+    top: 38vh; left: 35vw;
+    width: 13vw; height: 14vh;
+    background-color: blue;
+    transform: rotate(3deg);
+}
+div#select-image-chapter2 {
+    position: relative;
+    top: 23vh; left: 54vw;
+    width: 13vw; height: 15vh;
+    background-color: orange;
+    transform: rotate(-2deg);
+}
+div#select-image-chapter3 {
+    position: relative;
+    top: 32vh; left: 35vw;
+    width: 14vw; height: 13vh;
+    background-color: green;
+    transform: rotate(1deg);
+}
+div#select-image-chapter4 {
+    position: relative;
+    top: 17vh; left: 54vw;
+    width: 12vw; height: 18vh;
+    background-color: red;
+    transform: rotate(-1deg);
 }
