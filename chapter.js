@@ -73,7 +73,7 @@ function setupchapter1() {
     setTimeout(()=>{setDialogText("Nous vivions dans un pays antisémite, sous l’occupation allemande, dans le ghetto juif.")}, 3240);
     setTimeout(()=>{setDialogText("Séparés des autres.")}, 7710);
     setTimeout(()=>{setDialogText("Les soldats de la Gestapo patrouillaient dans le ghetto, à la recherche de gens comme nous.")}, 9160);
-    setTimeout(()=>{setDialogText("Nous savions que s’ils nous trouvaient chez nous, nous devions quitter la ville.")}, 13700);
+    setTimeout(()=>{setDialogText("Nous savions que s’ils nous trouvaient chez nous, nous devrions quitter la ville.")}, 13700);
     setTimeout(()=>{setDialogText("C’est ce qu’il s’est passé.")}, 17920);
     setTimeout(()=>{setDialogText("Un soir de décembre, ils ont sonné.")}, 19550);
     setTimeout(()=>{setDialogText("Nous nous sommes alors réfugiés dans notre cachette au grenier. ")}, 21760);
