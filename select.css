@@ -12,54 +12,78 @@ div#select-container {
 
 div#select-background {
     background-color: black;
-    background-image: url("./resources/images/select/background.png");
-    transform: none;
+    background-image: none;
+    transform: scale(1.1);
     margin: 0px; padding: 0px;
     display: block;
     position: fixed;
     top: 0px; left: 0px;
     bottom: 0px; right: 0px;
-    transition: transfrom 200ms ease;
+    transition: transform 100ms;
     background-size: 100vw 100vh;
 }
 
 div#select-foreground {
-    background-image: url("./resources/images/select/foreground.png");
-    transform: none;
+    background-image: none;
+    transform: scale(1.1);
     margin: 0px; padding: 0px;
     display: block;
     position: fixed;
     top: 0px; left: 0px;
     bottom: 0px; right: 0px;
-    transition: transfrom 200ms ease;
+    transition: transform 100ms;
     background-size: 100vw 100vh;
 }
 
 div#select-image-chapter1 {
     position: relative;
     top: 38vh; left: 35vw;
-    width: 13vw; height: 14vh;
-    background-color: blue;
-    transform: rotate(3deg);
+    width: 13vw; height: calc(14vh - 50px);
+    border: solid 2px black;
+    text-align: center;
+    padding-top: 40px;
+    transform: rotate(3deg) scale(1);
+    transition: transform 100ms;
+    cursor: pointer;
+} div#select-image-chapter1:hover {
+    transform: rotate(3deg) scale(1.05);
 }
 div#select-image-chapter2 {
     position: relative;
     top: 23vh; left: 54vw;
-    width: 13vw; height: 15vh;
-    background-color: orange;
-    transform: rotate(-2deg);
+    width: 13vw; height: calc(15vh - 50px);
+    border: solid 2px black;
+    text-align: center;
+    padding-top: 40px;
+    transform: rotate(-2deg) scale(1);
+    transition: transform 100ms;
+    cursor: pointer;
+} div#select-image-chapter2:hover {
+    transform: rotate(-2deg) scale(1.05);
 }
 div#select-image-chapter3 {
     position: relative;
     top: 32vh; left: 35vw;
-    width: 14vw; height: 13vh;
-    background-color: green;
-    transform: rotate(1deg);
+    width: 14vw; height: calc(13vh - 50px);
+    border: solid 2px black;
+    text-align: center;
+    padding-top: 40px;
+    transform: rotate(1deg) scale(1);
+    transition: transform 100ms;
+    cursor: pointer;
+} div#select-image-chapter3:hover {
+    transform: rotate(1deg) scale(1.05);
 }
 div#select-image-chapter4 {
     position: relative;
     top: 17vh; left: 54vw;
-    width: 12vw; height: 18vh;
-    background-color: red;
-    transform: rotate(-1deg);
+    width: 12vw; height: calc(18vh - 50px);
+    border: solid 2px black;
+    text-align: center;
+    padding-top: 40px;
+    transform: rotate(-1deg) scale(1);
+    transition: transform 100ms;
+    cursor: pointer;
+} div#select-image-chapter4:hover {
+    transform: rotate(-1deg) scale(1.05);
 }

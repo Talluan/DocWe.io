@@ -25,20 +25,29 @@
         <div id="select-container">
             <div id="select-background"></div>
             <div id="select-foreground">
-                <div id="select-image-chapter1" onclick="changeViewTo(CONSTANTS.VIEW_CHAPTER, CONSTANTS.CHAPTER_1)"></div>
-                <div id="select-image-chapter2" onclick="changeViewTo(CONSTANTS.VIEW_CHAPTER, CONSTANTS.CHAPTER_2)"></div>
-                <div id="select-image-chapter3" onclick="changeViewTo(CONSTANTS.VIEW_CHAPTER, CONSTANTS.CHAPTER_3)"></div>
-                <div id="select-image-chapter4" onclick="changeViewTo(CONSTANTS.VIEW_CHAPTER, CONSTANTS.CHAPTER_4)"></div>
+                <div id="select-image-chapter1" onclick="changeViewTo(CONSTANTS.VIEW_CHAPTER, CONSTANTS.CHAPTER_1)">Chapitre 1</div>
+                <div id="select-image-chapter2" onclick="changeViewTo(CONSTANTS.VIEW_CHAPTER, CONSTANTS.CHAPTER_2)">Chapitre 2</div>
+                <div id="select-image-chapter3" onclick="changeViewTo(CONSTANTS.VIEW_CHAPTER, CONSTANTS.CHAPTER_3)">Chapitre 3</div>
+                <div id="select-image-chapter4" onclick="changeViewTo(CONSTANTS.VIEW_CHAPTER, CONSTANTS.CHAPTER_4)">Chapitre 4</div>
             </div>
         </div>
         <div id="chapters-container">
+            <div id="back-button-container">
+                <div id="back-button-div" onclick="changeViewTo(CONSTANTS.VIEW_SELECT)"></div>
+            </div>
             <div id="chapters-background"></div>
             <div id="chapters-foreground"></div>
             <div id="chapters-text-container">
-                <p id="chapters-text-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit, harum quis. Sit deserunt nisi minus quae nobis quam est voluptatum molestiae dolores excepturi corporis nulla, quibusdam temporibus consequatur fugiat? Natus.</p>
+                <p id="chapters-text-content"></p>
                 <div id="chapters-text-hider-x"></div>
                 <div id="chapters-text-hider-y"></div>
             </div>
+        </div>
+    </div>
+    <div id="loading-page">
+        <p id="loading-text">Chargement des ressources ...</p>
+        <div id="loading-bar-container">
+            <div id="loading-bar-div"></div>
         </div>
     </div>
 </body>
