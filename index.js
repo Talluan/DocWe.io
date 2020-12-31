@@ -47,6 +47,13 @@ var SOUNDS = {
         EFFECT_INDEX: 0,
         EFFECTS: []
     },
+    GUI: {
+        HOVER: null,
+        CLICK: null
+    },
+    SELECT: {
+        BACKGROUND: null
+    }
 }
 
 loadRessources();
@@ -87,6 +94,7 @@ function setChoicesEnabled(state, title="Question", left="Choix 1", right="Choix
         choicesDiv.style.transform = "scale(2)";
         setTimeout(()=>{choicesDiv.style.display = "none";}, 210);
     }
+    setDarkMode(state);
 }
 
 /**
@@ -97,7 +105,9 @@ function changeViewTo(view_number, chapter=0) {
     let selectDiv = document.getElementById("select-container");
     let chaptersDiv = document.getElementById("chapters-container");
     stopSounds()
+    remAllPopups();
     clearChapterEvents();
+    closeDialog();
     switch (view_number) {
         case CONSTANTS.VIEW_CHAPTER:
             chaptersDiv.style.opacity = "1";
@@ -133,17 +143,12 @@ function changeViewTo(view_number, chapter=0) {
             selectDiv.style.transform = "scale(1)";
             chaptersDiv.style.opacity = "0";
             chaptersDiv.style.transform = "scale(2)";
+            if (PARAMETERS.FULLSCREEN) SOUNDS.SELECT.BACKGROUND.play();
             break;
 
         default:
             break;
     }
-}
-
-function playSound(path="") {
-    let a = new Audio()
-    a.src = path;
-    a.play();
 }
 
 function startAudioStream() {
@@ -225,6 +230,10 @@ function stopSounds() {
             sound.currentTime = 0;
         });
     } catch (e) {}
+    try {
+        SOUNDS.SELECT.BACKGROUND.pause();
+        SOUNDS.SELECT.BACKGROUND.currentTime = 0;
+    } catch (e) {}
 }
 
 function openFullscreen(elem) {
@@ -241,6 +250,7 @@ function openFullscreen(elem) {
             PARAMETERS.FULLSCREEN = true;
         });
     }
+    if (CONSTANTS.RUNNING==CONSTANTS.VIEW_SELECT) SOUNDS.SELECT.BACKGROUND.play();
 }
   
 function closeFullscreen() {
@@ -260,9 +270,22 @@ function closeFullscreen() {
 }
 
 function loadRessources() {
-    max_element_loaded = 4;
+    max_element_loaded = 8;
     SOUNDS.CHAPTER_1.NARATIVE = new Audio("./resources/audio/chapter_1/narative.wav");
     SOUNDS.CHAPTER_1.NARATIVE.addEventListener("loadeddata", verifyLoading);
+    SOUNDS.CHAPTER_1.BACKGROUND = new Audio("./resources/audio/rain.wav");
+    SOUNDS.CHAPTER_1.BACKGROUND.addEventListener("loadeddata", verifyLoading);
+    SOUNDS.CHAPTER_1.BACKGROUND.volume = 0.5;
+    SOUNDS.CHAPTER_1.BACKGROUND.loop = true;
+    SOUNDS.SELECT.BACKGROUND = new Audio("./resources/audio/campfire.wav");
+    SOUNDS.SELECT.BACKGROUND.addEventListener("loadeddata", verifyLoading);
+    SOUNDS.SELECT.BACKGROUND.loop = true;
+    SOUNDS.GUI.HOVER = new Audio("./resources/audio/hover.wav");
+    SOUNDS.GUI.HOVER.addEventListener("loadeddata", verifyLoading);
+    SOUNDS.GUI.HOVER.volume = 0.5;
+    SOUNDS.GUI.CLICK = new Audio("./resources/audio/click.wav");
+    SOUNDS.GUI.CLICK.addEventListener("loadeddata", verifyLoading);
+    SOUNDS.GUI.CLICK.volume = 0.5;
     let img = new Image(); img.src = "./resources/images/select/background.png";
     img.addEventListener("load", ()=>{
         document.getElementById("select-background").style.backgroundImage = "url(./resources/images/select/background.png)";
@@ -284,7 +307,6 @@ function loadRessources() {
 function verifyLoading() {
     elements_loaded++;
     document.getElementById("loading-bar-div").style.width = Math.round((elements_loaded/max_element_loaded)*100)+"%";
-    console.log(document.getElementById("loading-bar-div").style.width)
     loaded = (elements_loaded == max_element_loaded);
 }
 
@@ -303,5 +325,15 @@ function animateLoading() {
                 document.getElementById("loading-page").style.display = "none";
             }, 200);
         } catch (e) {}
+    }
+}
+
+/**@param {boolean} state */
+function setDarkMode(state) {
+    let main_container = document.getElementById("main-container");
+    if (state) {
+        main_container.style.filter = "brightness(0.4)";
+    } else {
+        main_container.style.filter = "brightness(1)";
     }
 }

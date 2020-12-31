@@ -6,8 +6,11 @@ body {
 
 div#main-container {
     transform: none;
+    height: 100vh;
     margin: 0px; padding: 0px;
     display: block;
+    filter: brightness(1);
+    transition: filter 200ms ease, transform 200ms ease;
 }
 
 @font-face {

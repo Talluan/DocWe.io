@@ -48,6 +48,7 @@ div#chapters-text-container {
     box-shadow: 0px 0px 15px black;
     display: block;
     transition: max-height 200ms;
+    overflow: hidden;
 }
 
 div#chapters-text-hider-x, div#chapters-text-hider-y {
