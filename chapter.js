@@ -2,6 +2,7 @@
 var chapter_events = [];
 var chapter_events_running = false;
 var chapter_events_deltaTime = 0;
+var pause_chapter_events = false;
 
 function loadChapter(index=1) {
     switch (index) {
@@ -39,10 +40,10 @@ function closeDialog() {
 
 /**
  * set the chapter background to the given picture
- * @param {string} src 
+ * @param {HTMLImageElement} img
  */
-function setChapterBackground(src) {
-    document.getElementById("chapters-background").style.backgroundImage = "url("+src+")";
+function setChapterBackground(img) {
+    document.getElementById("chapters-background").style.backgroundImage = "url("+img.src+")";
 } 
 
 /**
@@ -82,21 +83,31 @@ function setDialogText(text) {
 function setupchapter1() {
     clearChapterEvents();
     addChapterEvents(openDialog, 0);
+    addChapterEvents(()=>{nextBackground(CONSTANTS.CHAPTER_1);}, 0);
     addChapterEvents(()=>{setDialogText("J’avais 15 ans en 1939.")}, 600);
     addChapterEvents(()=>{setDialogText("Nous vivions dans un pays antisémite, sous l’occupation allemande, dans le ghetto juif.")}, 3200);
-    addChapterEvents(()=>{addPopup("more-ghetto", "Ghetto Juifs", "Plus d'information", {x:70,y:50})}, 7000);
+    addChapterEvents(()=>{
+        addPopup("more-ghetto", "Ghetto Juifs", "Plus d'information", {x:70,y:50}, "./doc/chapter_1/ghetto.html",
+            ()=>{SOUNDS.CHAPTER_1.NARATIVE.pause();pauseChapterEvents();},
+            ()=>{SOUNDS.CHAPTER_1.NARATIVE.play();resumeChapterEvents();}
+        )
+    }, 7000);
     addChapterEvents(()=>{setDialogText("Séparés des autres.")}, 7700);
     addChapterEvents(()=>{setDialogText("Les soldats de la Gestapo patrouillaient dans le ghetto, à la recherche de gens comme nous.")}, 9200);
     addChapterEvents(()=>{remPopup("more-ghetto")}, 13000);
     addChapterEvents(()=>{setDialogText("Nous savions que s’ils nous trouvaient chez nous, nous devrions quitter la ville.")}, 13700);
     addChapterEvents(()=>{setDialogText("C’est ce qu’il s’est passé.")}, 17900);
     addChapterEvents(()=>{setDialogText("Un soir de décembre, ils ont sonné.")}, 19600);
+    addChapterEvents(()=>{nextBackground(CONSTANTS.CHAPTER_1);}, 21500);
     addChapterEvents(()=>{setDialogText("Nous nous sommes alors réfugiés dans notre cachette au grenier. ")}, 21800);
+    addChapterEvents(()=>{nextBackground(CONSTANTS.CHAPTER_1);}, 24000);
     addChapterEvents(()=>{setDialogText("Mais ma mère n’a pas eu le temps de nous rejoindre lorsque la porte a été défoncée.")}, 24700);
-    addChapterEvents(()=>{setDialogText("Lorsqu’ils l’ont interrogée, elle a prétendu que mes frères, mon père et moi avions quitté la ville.")}, 28920);
+    addChapterEvents(()=>{setDialogText("Lorsqu’ils l’ont interrogée, elle a prétendu que mes frères, mon père et moi avions quitté la ville.")}, 28900);
+    addChapterEvents(()=>{nextBackground(CONSTANTS.CHAPTER_1);}, 30800);
     addChapterEvents(()=>{setDialogText("Nous sommes restés cachés. ")}, 34600);
     addChapterEvents(()=>{setDialogText("Elle nous a sauvé la vie.")}, 36800);
     addChapterEvents(()=>{setDialogText("Puis elle a été emmenée.")}, 38200);
+    addChapterEvents(()=>{nextBackground(CONSTANTS.CHAPTER_1);}, 39000);
     addChapterEvents(closeDialog, 41000);
     try {SOUNDS.CHAPTER_1.NARATIVE.play();} catch (e) {}
     try {SOUNDS.CHAPTER_1.BACKGROUND.play();} catch (e) {}
@@ -140,6 +151,15 @@ function setupchapter4() {
 function clearChapterEvents() {
     chapter_events = [];
     chapter_events_deltaTime = 0;
+    SOUNDS.CHAPTER_1.EFFECT_INDEX = 0;
+    SOUNDS.CHAPTER_2.EFFECT_INDEX = 0;
+    SOUNDS.CHAPTER_3.EFFECT_INDEX = 0;
+    SOUNDS.CHAPTER_4.EFFECT_INDEX = 0;
+    PICTURES.CHAPTER_1.PIC_INDEX = 0;
+    PICTURES.CHAPTER_2.PIC_INDEX = 0;
+    PICTURES.CHAPTER_3.PIC_INDEX = 0;
+    PICTURES.CHAPTER_4.PIC_INDEX = 0;
+    document.getElementById("chapters-background").style.backgroundImage = "none";
 }
 
 /**
@@ -153,10 +173,10 @@ function addChapterEvents(action, time) {
 
 function startChapterEvents() {
     chapter_events_running = true;
-    checkForChapterEvents(200);
+    checkForChapterEvents();
 }
 
-function checkForChapterEvents(deltaTime) {
+function checkForChapterEvents() {
     if (!chapter_events_running) return;
     let index = 0;
     while (true) {
@@ -169,8 +189,18 @@ function checkForChapterEvents(deltaTime) {
         else break;
     }
     if (chapter_events.length == 0) chapter_events_running = false;
-    chapter_events_deltaTime+=deltaTime;
-    setTimeout(checkForChapterEvents, deltaTime, deltaTime);
+    chapter_events_deltaTime += 200;
+    if (!pause_chapter_events) setTimeout(checkForChapterEvents, 200);
+}
+
+function pauseChapterEvents() {
+    pause_chapter_events = true;
+}
+function resumeChapterEvents() {
+    if (pause_chapter_events) {
+        pause_chapter_events = false;
+        checkForChapterEvents();
+    }
 }
 
 function playEffect(chapter_number) {
@@ -186,6 +216,34 @@ function playEffect(chapter_number) {
             break;
         case CONSTANTS.CHAPTER_4:
             SOUNDS.CHAPTER_4.EFFECTS[SOUNDS.CHAPTER_4.EFFECT_INDEX++].play();
+            break;
+    
+        default:
+            break;
+    }
+}
+
+function nextBackground(chapter_number) {
+    switch (chapter_number) {
+        case CONSTANTS.CHAPTER_1:
+            setChapterBackground(PICTURES.CHAPTER_1.PICS[PICTURES.CHAPTER_1.PIC_INDEX++]);
+            if (PICTURES.CHAPTER_1.PIC_INDEX == PICTURES.CHAPTER_1.PICS.length)
+                PICTURES.CHAPTER_1.PIC_INDEX = 0;
+            break;
+        case CONSTANTS.CHAPTER_2:
+            setChapterBackground(PICTURES.CHAPTER_2.PICS[PICTURES.CHAPTER_2.PIC_INDEX++]);
+            if (PICTURES.CHAPTER_2.PIC_INDEX == PICTURES.CHAPTER_2.PICS.length)
+                PICTURES.CHAPTER_2.PIC_INDEX = 0;
+            break;
+        case CONSTANTS.CHAPTER_3:
+            setChapterBackground(PICTURES.CHAPTER_3.PICS[PICTURES.CHAPTER_3.PIC_INDEX++]);
+            if (PICTURES.CHAPTER_3.PIC_INDEX == PICTURES.CHAPTER_3.PICS.length)
+                PICTURES.CHAPTER_3.PIC_INDEX = 0;
+            break;
+        case CONSTANTS.CHAPTER_4:
+            setChapterBackground(PICTURES.CHAPTER_4.PICS[PICTURES.CHAPTER_4.PIC_INDEX++]);
+            if (PICTURES.CHAPTER_4.PIC_INDEX == PICTURES.CHAPTER_4.PICS.length)
+                PICTURES.CHAPTER_4.PIC_INDEX = 0;
             break;
     
         default:

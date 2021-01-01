@@ -56,6 +56,25 @@ var SOUNDS = {
     }
 }
 
+var PICTURES = {
+    CHAPTER_1: {
+        PIC_INDEX: 0,
+        PICS: []
+    },
+    CHAPTER_2: {
+        PIC_INDEX: 0,
+        PICS: []
+    },
+    CHAPTER_3: {
+        PIC_INDEX: 0,
+        PICS: []
+    },
+    CHAPTER_4: {
+        PIC_INDEX: 0,
+        PICS: []
+    }
+}
+
 loadRessources();
 window.onload = () => {
     setChoicesEnabled(false);
@@ -275,7 +294,7 @@ function loadRessources() {
     SOUNDS.CHAPTER_1.NARATIVE.addEventListener("loadeddata", verifyLoading);
     SOUNDS.CHAPTER_1.BACKGROUND = new Audio("./resources/audio/rain.wav");
     SOUNDS.CHAPTER_1.BACKGROUND.addEventListener("loadeddata", verifyLoading);
-    SOUNDS.CHAPTER_1.BACKGROUND.volume = 0.5;
+    SOUNDS.CHAPTER_1.BACKGROUND.volume = 1;
     SOUNDS.CHAPTER_1.BACKGROUND.loop = true;
     SOUNDS.SELECT.BACKGROUND = new Audio("./resources/audio/campfire.wav");
     SOUNDS.SELECT.BACKGROUND.addEventListener("loadeddata", verifyLoading);
@@ -301,6 +320,38 @@ function loadRessources() {
         document.getElementById("back-button-div").style.backgroundImage = "url(./resources/images/back.svg)";
         verifyLoading();
     });
+
+    let chapter_1_pics = ["./resources/images/chapter_1/ghetto.jpg", "./resources/images/chapter_1/echelle.jpg",
+                          "./resources/images/chapter_1/grenier_1.jpg", "./resources/images/chapter_1/grenier_2.jpg"]
+    let chapter_2_pics = ["./resources/images/chapter_2/alarme.jpg", "./resources/images/chapter_2/wagon.jpg",
+                          "./resources/images/chapter_2/arrivee_camps.jpg"]
+    let chapter_3_pics = ["./resources/images/chapter_3/camp.jpg", "./resources/images/chapter_3/travail.jpg"]
+    let chapter_4_pics = []
+    max_element_loaded+=chapter_1_pics.length;
+    for (let i = 0; i < chapter_1_pics.length; i++) {
+        img = new Image(); img.src = chapter_1_pics[i];
+        img.addEventListener("load", verifyLoading);
+        PICTURES.CHAPTER_1.PICS.push(img);
+    }
+    max_element_loaded+=chapter_2_pics.length;
+    for (let i = 0; i < chapter_2_pics.length; i++) {
+        img = new Image(); img.src = chapter_2_pics[i];
+        img.addEventListener("load", verifyLoading);
+        PICTURES.CHAPTER_2.PICS.push(img);
+    }
+    max_element_loaded+=chapter_3_pics.length;
+    for (let i = 0; i < chapter_3_pics.length; i++) {
+        img = new Image(); img.src = chapter_3_pics[i];
+        img.addEventListener("load", verifyLoading);
+        PICTURES.CHAPTER_3.PICS.push(img);
+    }
+    max_element_loaded+=chapter_4_pics.length;
+    for (let i = 0; i < chapter_4_pics.length; i++) {
+        img = new Image(); img.src = chapter_4_pics[i];
+        img.addEventListener("load", verifyLoading);
+        PICTURES.CHAPTER_4.PICS.push(img);
+    }
+
     animateLoading();
 }
 
