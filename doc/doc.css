@@ -38,6 +38,10 @@ div#image {
     width: auto;
     text-align: center;
 }
+div#legende {
+    width: 500px;
+}
+
 div#citation {
     margin-top: 50px;
     color: white;
