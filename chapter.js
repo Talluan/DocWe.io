@@ -88,23 +88,23 @@ function setupchapter1() {
     addChapterEvents(()=>{setDialogText("Et bien-sûr, j'étais juif.")}, 2500);
     addChapterEvents(()=>{setDialogText("Nous vivions dans un pays antisémite, sous l’occupation allemande.")}, 4800);
     addChapterEvents(()=>{setDialogText("Notre ancienne maison nous fût prise par un chef de l'armée allemande, avec toutes les affaires que nous n'avions pas eu le temps de prendre.")}, 8100);
-    addChapterEvents(()=>{setDialogText("Et nous, nous avons finis dans un ghetto.")}, 13800);
+    addChapterEvents(()=>{setDialogText("Et nous, nous avons fini dans un ghetto.")}, 13800);
     addChapterEvents(()=>{
-        addPopup("more-ghetto", "Les ghetto Juifs", "Plus d'information", {x:70,y:50}, "./doc/chapter_1/ghetto.html",
+        addPopup("more-ghetto", "Les ghettos Juifs", "Plus d'information", {x:70,y:50}, "./doc/chapter_1/ghetto.html",
             ()=>{SOUNDS.CHAPTER_1.NARATIVE.pause();pauseChapterEvents();},
             ()=>{SOUNDS.CHAPTER_1.NARATIVE.play();resumeChapterEvents();}
         )
     }, 15700);
-    addChapterEvents(()=>{setDialogText("C'était là, ou tout les juifs de la région étaient entassés.")}, 16400);
+    addChapterEvents(()=>{setDialogText("C'était là, ou tous les juifs de la région étaient entassés.")}, 16400);
     addChapterEvents(()=>{setDialogText("Dans ce dernier, nous étions plusieurs familles dans la même chambre.")}, 19900);
     addChapterEvents(()=>{remPopup("more-ghetto");}, 22500);
-    addChapterEvents(()=>{setDialogText("Nous avions très peu de place, mais on se disais que ça pouvais être pire.")}, 23300);
+    addChapterEvents(()=>{setDialogText("Nous avions très peu de place, mais on se disait que ça pouvait être pire.")}, 23300);
     addChapterEvents(()=>{setDialogText("De temps à autres, les soldats de la Gestapo patrouillaient dans le ghetto, à la recherche de juifs.")}, 26800);
     addChapterEvents(()=>{setDialogText("Nous savions que s’ils nous trouvaient chez nous, nous devrions quitter le ghetto pour aller à un autre endroit qui serait probablement pire.")}, 31700);
     addChapterEvents(()=>{setDialogText("Pour anticiper ce problème, nous avions construit une cachette en hauteur dans le grenier de cette maison.")}, 38100); 
     addChapterEvents(()=>{nextBackground(CONSTANTS.CHAPTER_1);}, 38100);
     addChapterEvents(()=>{
-        addPopup("more-cachettes", "Les cachettes juives", "Plus d'information", {x:20,y:50}, "./doc/chapter_1/cachettes.html",
+        addPopup("more-cachettes", "Le sauvetage des Juifs", "Plus d'information", {x:20,y:50}, "./doc/chapter_1/cachettes.html",
             ()=>{SOUNDS.CHAPTER_1.NARATIVE.pause();pauseChapterEvents();},
             ()=>{SOUNDS.CHAPTER_1.NARATIVE.play();resumeChapterEvents();}
         )
@@ -113,7 +113,7 @@ function setupchapter1() {
     addChapterEvents(()=>{nextBackground(CONSTANTS.CHAPTER_1); }, 44000);
     addChapterEvents(()=>{setDialogText("Sara, ma mère, n’a pas eu le temps de nous rejoindre lorsque la porte fût défoncée.")}, 46400);
     addChapterEvents(()=>{nextBackground(CONSTANTS.CHAPTER_1);}, 50000);
-    addChapterEvents(()=>{setDialogText("Au moment où ils l’intérrogèrent, elle prétendit que mes frères, mon père et moi avions déjà quitté ce ghetto.")}, 51000);
+    addChapterEvents(()=>{setDialogText("Au moment où ils l’interrogèrent, elle prétendit que mes frères, mon père et moi avions déjà quitté le ghetto.")}, 51000);
     addChapterEvents(()=>{remPopup("more-cachettes");}, 52000);
     addChapterEvents(()=>{setDialogText("Nous sommes restés cachés toute la nuit.")}, 56900);
     addChapterEvents(()=>{setDialogText("Elle nous a sauvé la vie.")}, 59200);
@@ -130,6 +130,7 @@ function setupchapter2() {
     clearChapterEvents();
     addChapterEvents(openDialog, 0);
     addChapterEvents(()=>{nextBackground(CONSTANTS.CHAPTER_2); }, 0);
+    addChapterEvents(()=>{setDialogText("La cachette était plutôt élaborée.")}, 550);
     addChapterEvents(()=>{setDialogText("La cachette était plutôt élaborée.")}, 550);
     addChapterEvents(()=>{setDialogText("Comme dit précédemment, nous l’avions aménagé au-dessus de notre grenier, il y a plusieurs mois, lorsque nous avons compris que nous pouvions être arrêtés à tout moment chez nous.")}, 2400);
     addChapterEvents(()=>{setDialogText("Nous avions créé un système d’alarme : une lampe s’allumait quand quelqu’un rentrait dans la maison.")}, 10900);
@@ -150,7 +151,7 @@ function setupchapter2() {
     addChapterEvents(()=>{nextBackground(CONSTANTS.CHAPTER_2); }, 54900);
     addChapterEvents(()=>{setDialogText("Nous avons été emmenés, puis mis dans des trains.")}, 54900);
     addChapterEvents(()=>{
-        addPopup("more-trains", "Les exportations de juifs", "Plus d'information", {x:70,y:40}, "./doc/chapter_2/trains.html",
+        addPopup("more-trains", "La déportation des Juifs", "Plus d'information", {x:70,y:40}, "./doc/chapter_2/deportation.html",
             ()=>{SOUNDS.CHAPTER_2.NARATIVE.pause();pauseChapterEvents();},
             ()=>{SOUNDS.CHAPTER_2.NARATIVE.play();resumeChapterEvents();}
         )
@@ -160,7 +161,7 @@ function setupchapter2() {
     addChapterEvents(()=>{setDialogText("Après des jours de transport. Les portes se sont enfin ouvertes. Nous étions dans un camp de concentration dont je ne me souviens plus le nom.")}, 64800);
     addChapterEvents(()=>{remPopup("more-trains");}, 65200);
     addChapterEvents(()=>{nextBackground(CONSTANTS.CHAPTER_2); }, 65500);
-    addChapterEvents(closeDialog, 75000);
+    addChapterEvents(closeDialog, 73000);
     try {SOUNDS.CHAPTER_2.NARATIVE.play();} catch (e) {}
     try {SOUNDS.CHAPTER_2.BACKGROUND.play();} catch (e) {}
     SOUNDS.CHAPTER_2.EFFECT_INDEX = 0;
@@ -170,8 +171,32 @@ function setupchapter2() {
 function setupchapter3() {
     clearChapterEvents();
     addChapterEvents(openDialog, 0);
-    addChapterEvents(()=>{setDialogText("Texte pour le chapitre 3.")}, 200);
-    addChapterEvents(closeDialog, 2000);
+    addChapterEvents(()=>{nextBackground(CONSTANTS.CHAPTER_3)}, 0);
+    addChapterEvents(()=>{setDialogText("Nous étions dans les camps de travail.")}, 500);
+    addChapterEvents(()=>{setDialogText("Des baraquements à, perte de vue.")}, 2700);
+    addChapterEvents(()=>{setDialogText("Des milliers de personnes à la sortie des trains.")}, 4800);
+    addChapterEvents(()=>{
+        addPopup("more-camps", "Les camps de concentration", "Plus d'information", {x: 10, y: 70}, "./doc/chapter_3/camps.html",
+            ()=>{SOUNDS.CHAPTER_3.NARATIVE.pause();pauseChapterEvents();},
+            ()=>{SOUNDS.CHAPTER_3.NARATIVE.play();resumeChapterEvents();}
+        )
+    }, 6900)
+    addChapterEvents(()=>{setDialogText("Nous étions contraints au travail.")}, 7300);
+    addChapterEvents(()=>{setDialogText("Nous étions chargés d’agrandir le camp, ce même camp qui nous retenait prisonnier.")}, 9100);
+    addChapterEvents(()=>{setDialogText("Et si ce n’était pas pour le camp, c’était pour de l’armement de guerre.")}, 13400);
+    addChapterEvents(()=>{remPopup("more-camps")}, 15000);
+    addChapterEvents(()=>{setDialogText("Nous recevions l’équivalent d’un repas par jour et nous travaillions comme des forcenés.")}, 17000);
+    addChapterEvents(()=>{setDialogText("Certains mourraient de faim, d’autres d’épuisement, et d'autres encore sous les balles d’allemands.")}, 21300);
+    addChapterEvents(()=>{setDialogText("Pour vérifier si nous étions encore apte au travail, il arrivait aux responsables du camp, d’organiser en son centre, une course en cercle.")}, 26200);
+    addChapterEvents(()=>{setDialogText("Si ils nous trouvaient trop fatigué ou trop vieux on nous faisait sortir, puis tous ceux choisis partaient pour un autre endroit.")}, 33400);
+    addChapterEvents(()=>{nextBackground(CONSTANTS.CHAPTER_3)}, 39000);
+    addChapterEvents(()=>{setDialogText("Mon père ne tenait plus. Il s’est écroulé. Il fut écarté puis emmené avec les inaptes.")}, 40100);
+    addChapterEvents(()=>{setDialogText("Des bruits couraient sur des camps de la mort. On priait pour que ce ne soit que des rumeurs et que les inaptes et les enfants soient simplement mis ailleurs.")}, 46000);
+    addChapterEvents(()=>{setDialogText("Avec moi il ne restait que mon dernier frère Isaac de 1 an mon cadet.")}, 53200);
+    addChapterEvents(()=>{setDialogText("Des années entières se sont écoulées, nous travaillions tous les jours. ")}, 58000);
+    addChapterEvents(()=>{setDialogText("De nombreux amis n’ont pas survécu.")}, 62100);
+    addChapterEvents(()=>{setDialogText("En été 1945, l’Allemagne fut battue, et on nous rendit notre liberté.")}, 64500);
+    addChapterEvents(closeDialog, 71000);
     try {SOUNDS.CHAPTER_3.NARATIVE.play();} catch (e) {}
     try {SOUNDS.CHAPTER_3.BACKGROUND.play();} catch (e) {}
     SOUNDS.CHAPTER_3.EFFECT_INDEX = 0;

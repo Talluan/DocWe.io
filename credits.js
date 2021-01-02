@@ -8,6 +8,7 @@ function setupCredits() {
 }
 
 function hoverArrow() {
+    SOUNDS.GUI.HOVER.play();
     let arrow = document.getElementById("credits-arrow");
     if (credits_expanded) {
         arrow.style.left = "-2px";
@@ -26,6 +27,7 @@ function unhoverArrow() {
 }
 
 function clickArrow() {
+    SOUNDS.GUI.CLICK.play();
     let arrow = document.getElementById("credits-arrow");
     let content = document.getElementById("credits-content");
     if (credits_expanded) {
@@ -49,6 +51,7 @@ function clickArrow() {
 }
 
 function loadCredits(name) {
+    SOUNDS.GUI.CLICK.play();
     let visu = document.getElementById("credits-visu");
     let paul = document.getElementById("credits-name-paul");
     let tom = document.getElementById("credits-name-tom");
@@ -58,28 +61,32 @@ function loadCredits(name) {
     benj.style.backgroundColor = "#12233420"; robin.style.backgroundColor = "#12233420";
     paul.style.transform = "scale(1)"; tom.style.transform = "scale(1)";
     benj.style.transform = "scale(1)"; robin.style.transform = "scale(1)";
-    switch (name) {
-        case CONSTANTS.PAUL:
-            visu.src = "./credits/paul.html";
-            paul.style.backgroundColor = "#122334FF";
-            paul.style.transform = "scale(1.05)";
-            break;
-        case CONSTANTS.TOM:
-            visu.src = "./credits/tom.html";
-            tom.style.backgroundColor = "#122334FF";
-            tom.style.transform = "scale(1.05)";
-            break;
-        case CONSTANTS.ROBIN:
-            visu.src = "./credits/robin.html";
-            robin.style.backgroundColor = "#122334FF";
-            robin.style.transform = "scale(1.05)";
-            break;
-        case CONSTANTS.BENJAMIN:
-            visu.src = "./credits/benjamin.html";
-            benj.style.backgroundColor = "#122334FF";
-            benj.style.transform = "scale(1.05)";
-            break;
-        default:
-            break;
-    }
+    visu.style.opacity = "0";
+    setTimeout(() => {
+        switch (name) {
+            case CONSTANTS.PAUL:
+                visu.src = "./credits/paul.html";
+                paul.style.backgroundColor = "#122334FF";
+                paul.style.transform = "scale(1.05)";
+                break;
+            case CONSTANTS.TOM:
+                visu.src = "./credits/tom.html";
+                tom.style.backgroundColor = "#122334FF";
+                tom.style.transform = "scale(1.05)";
+                break;
+            case CONSTANTS.ROBIN:
+                visu.src = "./credits/robin.html";
+                robin.style.backgroundColor = "#122334FF";
+                robin.style.transform = "scale(1.05)";
+                break;
+            case CONSTANTS.BENJAMIN:
+                visu.src = "./credits/benjamin.html";
+                benj.style.backgroundColor = "#122334FF";
+                benj.style.transform = "scale(1.05)";
+                break;
+            default:
+                break;
+        }
+        visu.style.opacity = "1";
+    }, 210);
 }

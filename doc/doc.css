@@ -35,7 +35,15 @@ div#image {
     color: white;
     font-size: 20px;
     width: auto;
+    height: auto;
+    max-width: 100%;
     text-align: center;
+}
+div#image > img {
+    max-width: 700px;
+}
+div#legende {
+    width: 500px;
 }
 div#citation {
     margin-top: 50px;

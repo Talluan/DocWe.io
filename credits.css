@@ -24,15 +24,26 @@ div#credits-arrow {
 
 div#credits-content {
     position: fixed;
-    top: 0px; right: 100vw;
+    top: 0px; left: 100vw;
     height: 100vh; width: 100vw;
     background-color: #000B;
     border-left: solid 2px white;
     transition: left 200ms ease;
 }
 
+p#credits-title {
+    margin: 10px auto; padding: 10px 20px;
+    border: solid 2px white;
+    height: fit-content; width: fit-content;
+    border-radius: 8px;
+    font-family: "Roboto";
+    font-size: 5vh;
+    user-select: none;
+    -moz-user-select: none;
+    color: white;
+}
+
 div#credits-names {
-    margin-top: 10vh;
     display: inline-flex;
     justify-content: space-evenly;
     height: fit-content;
@@ -49,11 +60,17 @@ p.credits-name {
     color: white;
     cursor: pointer;
     transform: none;
+    user-select: none;
+    -moz-user-select: none;
     transition: transform 200ms ease, background-color 200ms ease;
 }
 
 iframe#credits-visu {
     width: 90vw;
     height: 75vh;
+    opacity: 1;
     background-color: #122334;
+    border: solid 2px white;
+    border-radius: 8px;
+    transition: opacity 200ms ease;
 }
