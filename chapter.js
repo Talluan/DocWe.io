@@ -90,7 +90,7 @@ function setupchapter1() {
     addChapterEvents(()=>{setDialogText("Notre ancienne maison nous fût prise par un chef de l'armée allemande, avec toutes les affaires que nous n'avions pas eu le temps de prendre.")}, 8100);
     addChapterEvents(()=>{setDialogText("Et nous, nous avons fini dans un ghetto.")}, 13800);
     addChapterEvents(()=>{
-        addPopup("more-ghetto", "Les ghettos Juifs", "Plus d'information", {x:70,y:50}, "./doc/chapter_1/ghetto.html",
+        addPopup("more-ghetto", "Les ghettos Juifs", "Plus d'informations", {x:70,y:50}, "./doc/chapter_1/ghetto.html",
             ()=>{SOUNDS.CHAPTER_1.NARATIVE.pause();pauseChapterEvents();},
             ()=>{SOUNDS.CHAPTER_1.NARATIVE.play();resumeChapterEvents();}
         )
@@ -104,7 +104,7 @@ function setupchapter1() {
     addChapterEvents(()=>{setDialogText("Pour anticiper ce problème, nous avions construit une cachette en hauteur dans le grenier de cette maison.")}, 38100); 
     addChapterEvents(()=>{nextBackground(CONSTANTS.CHAPTER_1);}, 38100);
     addChapterEvents(()=>{
-        addPopup("more-cachettes", "Le sauvetage des Juifs", "Plus d'information", {x:20,y:50}, "./doc/chapter_1/cachettes.html",
+        addPopup("more-cachettes", "Le sauvetage des Juifs", "Plus d'informations", {x:20,y:50}, "./doc/chapter_1/cachettes.html",
             ()=>{SOUNDS.CHAPTER_1.NARATIVE.pause();pauseChapterEvents();},
             ()=>{SOUNDS.CHAPTER_1.NARATIVE.play();resumeChapterEvents();}
         )
@@ -136,12 +136,12 @@ function setupchapter2() {
     addChapterEvents(()=>{setDialogText("Nous avions créé un système d’alarme : une lampe s’allumait quand quelqu’un rentrait dans la maison.")}, 10900);
     addChapterEvents(()=>{nextBackground(CONSTANTS.CHAPTER_2); }, 11800);
     addChapterEvents(()=>{setDialogText("Cependant, ma mère n’a pas réussi à se cacher à temps.")}, 15600);
-    addChapterEvents(()=>{setDialogText("Les soldats l’ont emmené.")}, 18500);
+    addChapterEvents(()=>{setDialogText("Les soldats l’ont emmenée.")}, 18500);
     addChapterEvents(()=>{setDialogText("Plusieurs mois plus tard, les armées allemandes décidèrent de vider le ghetto, tous les juifs présents ont dû être déporté, nous y compris.")}, 21700);
     addChapterEvents(()=>{setDialogText("Encore une fois, nous avions réussi à anticiper la menace et sommes retournés dans notre grenier, pour y passer la nuit en attendant que la tempête passe.")}, 28900);
     addChapterEvents(()=>{setDialogText("Malheureusement, cette nuit, les ennemis sont revenus, et ont fouillé de fond en comble tout le ghetto pour dénicher tous les juifs.")}, 37500);
     addChapterEvents(()=>{
-        addPopup("more-gestapo", "Les rafles", "Plus d'information", {x:15,y:45}, "./doc/chapter_2/rafles.html",
+        addPopup("more-gestapo", "Les rafles", "Plus d'informations", {x:15,y:45}, "./doc/chapter_2/rafles.html",
             ()=>{SOUNDS.CHAPTER_2.NARATIVE.pause();pauseChapterEvents();},
             ()=>{SOUNDS.CHAPTER_2.NARATIVE.play();resumeChapterEvents();}
         )
@@ -151,7 +151,7 @@ function setupchapter2() {
     addChapterEvents(()=>{nextBackground(CONSTANTS.CHAPTER_2); }, 54900);
     addChapterEvents(()=>{setDialogText("Nous avons été emmenés, puis mis dans des trains.")}, 54900);
     addChapterEvents(()=>{
-        addPopup("more-trains", "La déportation des Juifs", "Plus d'information", {x:70,y:40}, "./doc/chapter_2/deportation.html",
+        addPopup("more-trains", "La déportation des Juifs", "Plus d'informations", {x:70,y:40}, "./doc/chapter_2/deportation.html",
             ()=>{SOUNDS.CHAPTER_2.NARATIVE.pause();pauseChapterEvents();},
             ()=>{SOUNDS.CHAPTER_2.NARATIVE.play();resumeChapterEvents();}
         )
@@ -176,7 +176,7 @@ function setupchapter3() {
     addChapterEvents(()=>{setDialogText("Des baraquements à, perte de vue.")}, 2700);
     addChapterEvents(()=>{setDialogText("Des milliers de personnes à la sortie des trains.")}, 4800);
     addChapterEvents(()=>{
-        addPopup("more-camps", "Les camps de concentration", "Plus d'information", {x: 10, y: 70}, "./doc/chapter_3/camps.html",
+        addPopup("more-camps", "Les camps de concentration", "Plus d'informations", {x: 10, y: 70}, "./doc/chapter_3/camps.html",
             ()=>{SOUNDS.CHAPTER_3.NARATIVE.pause();pauseChapterEvents();},
             ()=>{SOUNDS.CHAPTER_3.NARATIVE.play();resumeChapterEvents();}
         )
