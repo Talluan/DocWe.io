@@ -81,6 +81,7 @@ function setDialogText(text) {
 }
 
 function setupchapter1() {
+    SOUNDS.CHAPTER_1.BACKGROUND.loop = true;
     clearChapterEvents();
     addChapterEvents(openDialog, 0);
     addChapterEvents(()=>{nextBackground(CONSTANTS.CHAPTER_1);}, 0);
@@ -127,10 +128,10 @@ function setupchapter1() {
 }
 
 function setupchapter2() {
+    SOUNDS.CHAPTER_2.BACKGROUND.loop = true;
     clearChapterEvents();
     addChapterEvents(openDialog, 0);
     addChapterEvents(()=>{nextBackground(CONSTANTS.CHAPTER_2); }, 0);
-    addChapterEvents(()=>{setDialogText("La cachette était plutôt élaborée.")}, 550);
     addChapterEvents(()=>{setDialogText("La cachette était plutôt élaborée.")}, 550);
     addChapterEvents(()=>{setDialogText("Comme dit précédemment, nous l’avions aménagé au-dessus de notre grenier, il y a plusieurs mois, lorsque nous avons compris que nous pouvions être arrêtés à tout moment chez nous.")}, 2400);
     addChapterEvents(()=>{setDialogText("Nous avions créé un système d’alarme : une lampe s’allumait quand quelqu’un rentrait dans la maison.")}, 10900);
@@ -169,11 +170,12 @@ function setupchapter2() {
 }
 
 function setupchapter3() {
+    SOUNDS.CHAPTER_3.BACKGROUND.loop = true;
     clearChapterEvents();
     addChapterEvents(openDialog, 0);
     addChapterEvents(()=>{nextBackground(CONSTANTS.CHAPTER_3)}, 0);
     addChapterEvents(()=>{setDialogText("Nous étions dans les camps de travail.")}, 500);
-    addChapterEvents(()=>{setDialogText("Des baraquements à, perte de vue.")}, 2700);
+    addChapterEvents(()=>{setDialogText("Des baraquements à perte de vue.")}, 2700);
     addChapterEvents(()=>{setDialogText("Des milliers de personnes à la sortie des trains.")}, 4800);
     addChapterEvents(()=>{
         addPopup("more-camps", "Les camps de concentration", "Plus d'informations", {x: 10, y: 70}, "./doc/chapter_3/camps.html",
@@ -205,6 +207,7 @@ function setupchapter3() {
 }
 
 function setupchapter4() {
+    SOUNDS.CHAPTER_4.BACKGROUND.loop = true;
     clearChapterEvents();
     addChapterEvents(openDialog, 0);
     addChapterEvents(()=>{nextBackground(CONSTANTS.CHAPTER_4)}, 0);
